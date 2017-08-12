@@ -1,0 +1,18 @@
+<h1>Edit user:</h1>
+
+
+<%= form_for @user do |f| %>
+
+  New username <%= f.text_field :name %><br>
+  New e-mail <%= f.text_field :email, placeholder: "email@host.com" %><br>
+  New password <%= f.password_field :password, placeholder: "******" %><br>
+  
+  <%= f.submit "Submit" %>
+<% end %>
+
+<%= "Errors:" if @user.errors.any? %>
+<ul>
+  <% @user.errors.full_messages.each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+</ul>
